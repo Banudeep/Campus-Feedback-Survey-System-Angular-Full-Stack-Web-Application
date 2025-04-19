@@ -47,4 +47,12 @@ The Campus Feedback Survey System allows prospective students to fill out a deta
    ```bash
    mvn clean install
    mvn spring-boot:run
+### Home Page
+
+![Home](images/home.png)
+
+### 🖼️ Student Survey Form Screenshot
+
+![Student Survey Form](images/survey-form.png)
+
 
