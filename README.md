@@ -55,4 +55,8 @@ The Campus Feedback Survey System allows prospective students to fill out a deta
 
 ![Student Survey Form](images/survey-form.png)
 
+### 🖼️ Survey List
+
+![Survey List](images/survey-list.png)
+
 
