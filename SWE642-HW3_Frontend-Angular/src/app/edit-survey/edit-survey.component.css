@@ -1,0 +1,23 @@
+/* GMU Colors */
+.text-gmu {
+    color: #006633;
+  }
+  
+  .btn-gmu {
+    background-color: #FFCC33;
+    color: #006633;
+    font-weight: bold;
+  }
+  
+  .btn-gmu:hover {
+    background-color: #006633;
+    color: #FFCC33;
+    border: 1px solid #FFCC33;
+  }
+  
+  h2 {
+    border-bottom: 3px solid #FFCC33;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  

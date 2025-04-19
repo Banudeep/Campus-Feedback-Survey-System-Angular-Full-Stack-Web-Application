@@ -1,0 +1,54 @@
+<div class="container my-5">
+    <h2 class="text-center text-gmu">All Surveys</h2>
+  
+    <!-- Toggle Buttons -->
+    <div class="d-flex justify-content-end mb-3">
+      <button class="btn btn-gmu me-2" (click)="viewMode = 'list'">List View</button>
+      <button class="btn btn-gmu" (click)="viewMode = 'grid'">Grid View</button>
+    </div>
+  
+    <!-- List View -->
+    <div *ngIf="viewMode === 'list'">
+      <table class="table table-striped">
+        <thead class="table-gmu">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let survey of surveys">
+            <td>{{survey.firstName}} {{survey.lastName}}</td>
+            <td>{{survey.email}}</td>
+            <td>{{survey.dateOfSurvey}}</td>
+            <td>
+              <!-- <button class="btn btn-sm btn-gmu me-2" (click)="editSurvey(survey.id, survey)">Edit</button> -->
+              <button class="btn btn-sm btn-gmu" (click)="editSurvey(survey.id)">Edit</button>
+              <button class="btn btn-sm btn-danger" (click)="deleteSurvey(survey.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Grid View -->
+    <div *ngIf="viewMode === 'grid'" class="row">
+      <div class="col-md-4 mb-4" *ngFor="let survey of surveys">
+        <div class="card shadow-sm border-gmu">
+          <div class="card-body">
+            <h5 class="card-title">{{survey.firstName}} {{survey.lastName}}</h5>
+            <p class="card-text"><strong>Email:</strong> {{survey.email}}</p>
+            <p class="card-text"><strong>Date:</strong> {{survey.dateOfSurvey}}</p>
+            <div class="d-flex justify-content-between">
+              <!-- <button class="btn btn-sm btn-gmu" (click)="editSurvey(survey.id, survey)">Edit</button> -->
+              <button class="btn btn-sm btn-gmu" (click)="editSurvey(survey.id)">Edit</button>
+              <button class="btn btn-sm btn-danger" (click)="deleteSurvey(survey.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

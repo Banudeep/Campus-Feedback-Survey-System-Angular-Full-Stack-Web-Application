@@ -1,0 +1,99 @@
+<form [formGroup]="surveyForm"  class="container my-5 p-4 rounded shadow">
+    <h2 class="text-center text-gmu mb-4">Student Survey Form</h2>
+    
+    <!-- Form Fields -->
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name:</label>
+      <input id="firstName" formControlName="firstName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name:</label>
+      <input id="lastName" formControlName="lastName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="streetAddress" class="form-label">Street Address:</label>
+      <input id="streetAddress" formControlName="streetAddress" class="form-control" required>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="city" class="form-label">City:</label>
+        <input id="city" formControlName="city" class="form-control" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="state" class="form-label">State:</label>
+        <input id="state" formControlName="state" class="form-control" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="zip" class="form-label">Zip:</label>
+        <input id="zip" formControlName="zip" class="form-control" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="telephone" class="form-label">Telephone:</label>
+        <input id="telephone" formControlName="telephone" class="form-control" required>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input id="email" formControlName="email" class="form-control" type="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="dateOfSurvey" class="form-label">Date of Survey:</label>
+      <input id="dateOfSurvey" formControlName="dateOfSurvey" type="date" class="form-control" required>
+    </div>
+  
+    <!-- Liked Options -->
+    <div formArrayName="likes">
+        <label class="form-label">What do you like about our university?</label>
+        <div *ngFor="let option of likedOptions">
+          <!-- <label>
+            <input type="checkbox" [formControlName]="option" />
+            {{ option }}
+          </label> -->
+          <input
+        type="checkbox"
+        [id]="option"
+        (change)="onCheckboxChange($event, option)"
+        />
+        <label [for]="option">{{ option }}</label><br />
+
+        </div>
+    </div>
+  
+    <!-- Interest Options -->
+    <div class="mb-3">
+      <label class="form-label">How did you become interested in the university?</label>
+      <div class="form-check" *ngFor="let option of interestOptions">
+        <input type="radio" [id]="option" [value]="option" formControlName="interestSource" class="form-check-input">
+        <label [for]="option" class="form-check-label">{{option}}</label>
+      </div>
+    </div>
+  
+    <!-- Recommend Dropdown -->
+    <div class="mb-3">
+      <label for="likelihood" class="form-label">Likelihood of recommending this school:</label>
+      <select id="likelihood" formControlName="likelihood" class="form-select">
+        <option value="">Select an option</option>
+        <option *ngFor="let option of recommendOptions" [value]="option">{{option}}</option>
+      </select>
+    </div>
+  
+    <!-- Comments -->
+    <div class="mb-3">
+      <label for="comments" class="form-label">Additional Comments:</label>
+      <textarea id="comments" formControlName="comments" class="form-control"></textarea>
+    </div>
+
+    <div formGroupName="Acknowledgement">
+      <input type="checkbox" required>
+      <label > Acknowledgement for the form</label><br />
+    </div>
+  
+    <!-- Buttons -->
+    <div class="text-center">
+      <button type="edit" class="btn btn-gmu me-3" [disabled]="!surveyForm.valid" (click)="editSurvey()">Edit</button>
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+  

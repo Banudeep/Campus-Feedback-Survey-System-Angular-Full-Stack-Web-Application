@@ -1,0 +1,54 @@
+/* George Mason University colors */
+:root {
+    --gmu-green: #006633;
+    --gmu-yellow: #FFCC33;
+  }
+  
+  /* Navigation styles */
+  .gmu-nav {
+    background-color: var(--gmu-green);
+  }
+  
+  .navbar-brand, .nav-link {
+    color: var(--gmu-yellow) !important;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  /* Jumbotron styles */
+  .gmu-jumbotron {
+    background-color: var(--gmu-yellow);
+    color: var(--gmu-green);
+    padding: 2rem;
+    border-radius: 0.3rem;
+  }
+  
+  /* List item styles */
+  .gmu-list-item {
+    background-color: var(--gmu-green);
+    color: var(--gmu-yellow);
+    border: 1px solid var(--gmu-yellow);
+  }
+  
+  /* General styles */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: row;
+    }
+  
+    .nav-item {
+      padding-right: 1rem;
+    }
+  }
